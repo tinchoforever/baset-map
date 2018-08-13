@@ -1,0 +1,56 @@
+<div class="container">
+	<div ng-hide="reclamos">
+		<h2> Cargando Historias  </h2>
+	</div>
+	<div ng-show="reclamos">
+           	<h4><small>#historiascondatos</small> </h4>
+			<h4>Ciudad de mil historias</h4>
+            <h2> {{reclamos.all.length}}  filmaciones </h2>
+            	
+            <div class="row">
+            <div class="col-md-4">
+	            <h1>¿ Que producciones ? </h1>
+	            <div ng-repeat="temas in reclamos.reclamosTema | orderBy:'-values.length'" >
+	            	<div class="row">
+	            		<div class="col-md-8">
+	            			<h3> <a href="#!/produccion/{{temas.key}}"><strong>{{temas.key}}</strong></a></h3>
+	            		</div>
+	            		<div class="col-md-4">
+	            			<h2>{{temas.values.length}}</h2>
+	            		</div>
+	            	</div>
+	            	
+	            </div>
+	        </div>
+		     <div class="col-md-4">
+		            <h1>¿ Que barrios temas? </h1>
+		            <div ng-repeat="subtema in reclamos.subtemas | orderBy:'-values.length'" >
+		            	<div class="row">
+	            		<div class="col-md-8">
+	            			<h4> <strong>{{subtema.key}}</strong></h4>
+	            		</div>
+	            		<div class="col-md-4">
+	            			<h5>{{subtema.values.length}}</h5>
+	            		</div>
+	            	</div>
+		            	
+		            </div>
+		      </div>
+		    <div class="col-md-4">
+		            <h1>¿ Que barrios fueron mas reclamadas? </h1>
+		            <div ng-repeat="estacion in reclamos.estaciones | orderBy:'-values.length'" >
+		            	<div class="row">
+	            		<div class="col-md-8">
+	            			<h4> <strong>{{estacion.key}}</strong></h4>
+	            		</div>
+	            		<div class="col-md-4">
+	            			<h5>{{estacion.values.length}}</h5>
+	            		</div>
+	            	</div>
+		            	
+		            </div>
+		      </div>
+   		</div>
+
+	</div>
+</div>
